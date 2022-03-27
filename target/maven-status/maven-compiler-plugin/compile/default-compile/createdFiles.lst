@@ -1,0 +1,11 @@
+br\com\cadastro\models\EnderecoRequest.class
+br\com\cadastro\repositories\EnderecoRepository.class
+br\com\cadastro\BatchConfiguration.class
+br\com\cadastro\controller\ClienteController.class
+br\com\cadastro\Application.class
+br\com\cadastro\models\ClienteRequest.class
+br\com\cadastro\repositories\CadastroRepository.class
+br\com\cadastro\entity\Endereco.class
+br\com\cadastro\entity\Cliente.class
+br\com\cadastro\services\ClienteService.class
+br\com\cadastro\SwaggerConfig.class
