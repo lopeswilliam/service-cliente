@@ -39,21 +39,21 @@ public class ClienteController {
 
 	@ApiOperation(value = "Inclui Cliente")
 	@PostMapping(path = "/incluir" , produces = {"application/json"})
-	public ResponseEntity<Cliente> inclusao(@Valid @RequestBody ClienteRequest clienteRequest) {
+	public ResponseEntity<Cliente> inclusao(@Valid @RequestBody ClienteRequest clienteRequest, @RequestParam("token") String token) {
 		logger.info("Iniciando a Inclusao do Cliente");
 		return clienteService.inclusao(clienteRequest );
 	}
 
 	@ApiOperation(value = "Consultar Cliente")
 	@GetMapping(path = "/consultar" , produces = {"application/json"})
-	public ResponseEntity<Cliente> consultar(@RequestParam("cpf") String cpf) {
+	public ResponseEntity<Cliente> consultar(@RequestParam("cpf") String cpf, @RequestParam("token") String token) {
 		logger.info("Iniciando a Consulta do Cliente");
 		return clienteService.consultar(cpf);
 	}
 
 	@ApiOperation(value = "Deletar Cliente")
 	@DeleteMapping(path = "/deletar" , produces = {"application/json"})
-	public ResponseEntity<String> deletar(@RequestParam("cpf") String cpf) {
+	public ResponseEntity<String> deletar(@RequestParam("cpf") String cpf, @RequestParam("token") String token) {
 		logger.info("Iniciando a Exclusao do Cliente");
 		return clienteService.deletar(cpf);
 	}
@@ -61,14 +61,14 @@ public class ClienteController {
 	
 	@ApiOperation(value = "Atualizar Cliente")
 	@PutMapping(path = "/atualizar" , produces = {"application/json"})
-	public ResponseEntity<Cliente> alterar(@RequestBody ClienteRequest clienteRequest) {
+	public ResponseEntity<Cliente> alterar(@RequestBody ClienteRequest clienteRequest, @RequestParam("token") String token) {
 		logger.info("Iniciando a Alteração do Cliente");
 		return clienteService.alterar(clienteRequest );
 	}
 	
 	@ApiOperation(value = "Listar clientes")
 	@GetMapping(value = "/listarclientes")
-	public ResponseEntity<List<ClienteRequest>> listar(){
+	public ResponseEntity<List<ClienteRequest>> listar(@RequestParam("token") String token){
 		System.out.println("Inicio do get cadastro de Clientes");
 
 		List<ClienteRequest>  cliente = new ArrayList<ClienteRequest>();
